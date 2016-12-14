@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AdmApp.Models
 {
-    public class Cliente
+    public class Locador
     {
         public int ID { get; set; }
         public string Nombre { get; set; }

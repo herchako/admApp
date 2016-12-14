@@ -11,107 +11,107 @@ using AdmApp.Models;
 
 namespace AdmApp.Controllers
 {
-    public class ClientesController : Controller
+    public class LocadoresController : Controller
     {
         private InmobiliariaContext db = new InmobiliariaContext();
 
-        // GET: Clientes
+        // GET: Locadores
         public ActionResult Index()
         {
-            return View(db.Clientes.ToList());
+            return View(db.Locadores.ToList());
         }
 
-        // GET: Clientes/Details/5
+        // GET: Locadores/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Locador locador = db.Locadores.Find(id);
+            if (locador == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(locador);
         }
 
-        // GET: Clientes/Create
+        // GET: Locadores/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Clientes/Create
+        // POST: Locadores/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nombre,Apellido,FechaDeAlta")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "ID,Nombre,Apellido,FechaDeAlta")] Locador locador)
         {
             if (ModelState.IsValid)
             {
-                db.Clientes.Add(cliente);
+                db.Locadores.Add(locador);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cliente);
+            return View(locador);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: Locadores/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Locador locador = db.Locadores.Find(id);
+            if (locador == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(locador);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: Locadores/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nombre,Apellido,FechaDeAlta")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "ID,Nombre,Apellido,FechaDeAlta")] Locador locador)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cliente).State = EntityState.Modified;
+                db.Entry(locador).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cliente);
+            return View(locador);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: Locadores/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Locador locador = db.Locadores.Find(id);
+            if (locador == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(locador);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: Locadores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cliente cliente = db.Clientes.Find(id);
-            db.Clientes.Remove(cliente);
+            Locador locador = db.Locadores.Find(id);
+            db.Locadores.Remove(locador);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

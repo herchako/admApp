@@ -10,7 +10,7 @@ namespace AdmApp.DAL
         {
         }
 
-        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Locador> Locadores { get; set; }
         public DbSet<Propiedad> Propiedades { get; set; }
         public DbSet<Inquilino> Inquilinos { get; set; }
 
