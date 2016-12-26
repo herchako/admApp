@@ -34,6 +34,33 @@
             @Html.DisplayFor(model => model.FechaDeAlta)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Propiedades)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Inquilino</th>
+                    <th>Calle</th>
+                    <th>Altura</th>
+                </tr>
+                @foreach (var item in Model.Propiedades)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Inquilino.Apellido)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Calle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Altura)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
     </dl>
 </div>
 <p>

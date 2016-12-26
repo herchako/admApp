@@ -9,16 +9,24 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Encontrar por Nombre: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nombre)
+           @Html.ActionLink("Apellido", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Apellido)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FechaDeAlta)
+            @Html.ActionLink("Fecha Alta", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th></th>
     </tr>
@@ -26,10 +34,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
+            @Html.DisplayFor(modelItem => item.Apellido)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Apellido)
+            @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FechaDeAlta)
