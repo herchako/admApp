@@ -13,14 +13,14 @@ namespace AdmApp.DAL
         {
             var locadores = new List<Locador>
             {
-            new Locador{Nombre="Carson",Apellido="Alexander",FechaDeAlta=DateTime.Parse("2005-09-01")},
-            new Locador{Nombre="Meredith",Apellido="Alonso",FechaDeAlta=DateTime.Parse("2005-09-01")},
-            new Locador{Nombre="Arturo",Apellido="Anand",FechaDeAlta=DateTime.Parse("2005-09-01")},
-            new Locador{Nombre="Gytis",Apellido="Barzdukas",FechaDeAlta=DateTime.Parse("2005-09-01")},
-            new Locador{Nombre="Yan",Apellido="Li",FechaDeAlta=DateTime.Parse("2005-09-01")},
-            new Locador{Nombre="Peggy",Apellido="Justice",FechaDeAlta=DateTime.Parse("2005-09-01")},
-            new Locador{Nombre="Laura",Apellido="Norman",FechaDeAlta=DateTime.Parse("2005-09-01")},
-            new Locador{Nombre="Nino",Apellido="Oliveto",FechaDeAlta=DateTime.Parse("2005-09-01")}
+            new Locador{Nombre="Carson",Apellido="Alexander",Email="Carson@mail.com",FechaDeAlta=DateTime.Parse("2005-09-01")},
+            new Locador{Nombre="Meredith",Apellido="Alonso",Email="Carson@mail.com",FechaDeAlta=DateTime.Parse("2005-09-02")},
+            new Locador{Nombre="Arturo",Apellido="Anand",Email="Carson@mail.com",FechaDeAlta=DateTime.Parse("2005-09-03")},
+            new Locador{Nombre="Gytis",Apellido="Barzdukas",Email="Carson@mail.com",FechaDeAlta=DateTime.Parse("2005-09-04")},
+            new Locador{Nombre="Yan",Apellido="Li",Email="Carson@mail.com",FechaDeAlta=DateTime.Parse("2005-09-05")},
+            new Locador{Nombre="Peggy",Apellido="Justice",Email="Carson@mail.com",FechaDeAlta=DateTime.Parse("2005-09-06")},
+            new Locador{Nombre="Laura",Apellido="Norman",Email="Carson@mail.com",FechaDeAlta=DateTime.Parse("2005-09-07")},
+            new Locador{Nombre="Nino",Apellido="Oliveto",Email="Carson@mail.com",FechaDeAlta=DateTime.Parse("2005-09-08")}
             };
 
             locadores.ForEach(s => context.Locadores.Add(s));

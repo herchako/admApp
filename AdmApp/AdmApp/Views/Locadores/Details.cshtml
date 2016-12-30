@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Cliente</h4>
+    <h4>Locador</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -27,29 +27,32 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.FechaDeAlta)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.FechaDeAlta)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Propiedades)
         </dt>
         <dd>
             <table class="table">
                 <tr>
-                    <th>Inquilino</th>
                     <th>Calle</th>
                     <th>Altura</th>
                 </tr>
                 @foreach (var item in Model.Propiedades)
                 {
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Inquilino.Apellido)
-                        </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Calle)
                         </td>
