@@ -214,6 +214,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701131454033_Initial.cs" />
+    <Compile Include="Migrations\201701131454033_Initial.Designer.cs">
+      <DependentUpon>201701131454033_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701131455199_migracion.cs" />
+    <Compile Include="Migrations\201701131455199_migracion.Designer.cs">
+      <DependentUpon>201701131455199_migracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701131457496_uno.cs" />
+    <Compile Include="Migrations\201701131457496_uno.Designer.cs">
+      <DependentUpon>201701131457496_uno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701131459211_dos.cs" />
+    <Compile Include="Migrations\201701131459211_dos.Designer.cs">
+      <DependentUpon>201701131459211_dos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Inquilino.cs" />
     <Compile Include="Models\Propiedad.cs" />
@@ -1100,6 +1117,20 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701131454033_Initial.resx">
+      <DependentUpon>201701131454033_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701131455199_migracion.resx">
+      <DependentUpon>201701131455199_migracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701131457496_uno.resx">
+      <DependentUpon>201701131457496_uno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701131459211_dos.resx">
+      <DependentUpon>201701131459211_dos.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -1115,7 +1146,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58033</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
