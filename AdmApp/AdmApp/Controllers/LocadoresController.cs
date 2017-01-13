@@ -74,7 +74,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombre,Apellido,FechaDeAlta,Email,Telefono")] Locador locador)
+        public ActionResult Create([Bind(Include = "Nombre,Apellido,FechaDeAlta,Email,Telefono,Celular,Observaciones")] Locador locador)
         {
             try
             {
@@ -113,7 +113,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nombre,Apellido,Email,Telefono,FechaDeAlta")] Locador locador)
+        public ActionResult Edit([Bind(Include = "ID,Nombre,Apellido,Email,Telefono,Celular,Observaciones,FechaDeAlta")] Locador locador)
         {
             if (ModelState.IsValid)
             {
