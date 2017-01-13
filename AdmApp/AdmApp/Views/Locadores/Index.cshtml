@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<AdmApp.Models.Locador>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Indice";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo +", "Create")
 </p>
 <table class="table">
     <tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.FechaDeAlta)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
