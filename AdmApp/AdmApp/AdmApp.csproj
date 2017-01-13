@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201701131459211_dos.Designer.cs">
       <DependentUpon>201701131459211_dos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701131814205_170113.cs" />
+    <Compile Include="Migrations\201701131814205_170113.Designer.cs">
+      <DependentUpon>201701131814205_170113.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Inquilino.cs" />
@@ -1129,6 +1133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701131459211_dos.resx">
       <DependentUpon>201701131459211_dos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701131814205_170113.resx">
+      <DependentUpon>201701131814205_170113.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
