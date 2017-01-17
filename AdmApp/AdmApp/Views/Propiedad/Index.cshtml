@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AdmApp.Models.Propiedad>
+
+@{
+    ViewBag.Title = "Propiedades";
+}
+
+<h2>Indice</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo +", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Locador.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inquilino.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Altura)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Locador.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Inquilino.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Altura)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

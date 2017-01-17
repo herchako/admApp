@@ -206,9 +206,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\InquilinoController.cs" />
     <Compile Include="Controllers\LocadoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PropiedadController.cs" />
     <Compile Include="DAL\InmobiliariaInitializer.cs" />
     <Compile Include="DAL\InmobiliariaContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -1098,6 +1100,16 @@
     <Content Include="Views\Locadores\Index.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Locadores\View.cshtml" />
+    <Content Include="Views\Propiedad\Create.cshtml" />
+    <Content Include="Views\Propiedad\Delete.cshtml" />
+    <Content Include="Views\Propiedad\Details.cshtml" />
+    <Content Include="Views\Propiedad\Edit.cshtml" />
+    <Content Include="Views\Propiedad\Index.cshtml" />
+    <Content Include="Views\Inquilino\Create.cshtml" />
+    <Content Include="Views\Inquilino\Delete.cshtml" />
+    <Content Include="Views\Inquilino\Details.cshtml" />
+    <Content Include="Views\Inquilino\Edit.cshtml" />
+    <Content Include="Views\Inquilino\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
