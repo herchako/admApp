@@ -9,7 +9,7 @@ namespace AdmApp.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(AdmApp.DAL.InmobiliariaContext context)
