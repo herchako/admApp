@@ -16,9 +16,36 @@ namespace AdmApp.Controllers
         private InmobiliariaContext db = new InmobiliariaContext();
 
         // GET: Inquilino
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            return View(db.Inquilinos.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Fecha" ? "date_desc" : "Fecha";
+
+            var inquilinos = from l in db.Inquilinos
+                            select l;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                inquilinos = inquilinos.Where(l => l.Apellido.Contains(searchString)
+                                       || l.Nombre.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    inquilinos = inquilinos.OrderByDescending(l => l.Apellido);
+                    break;
+                case "Fecha":
+                    inquilinos = inquilinos.OrderBy(l => l.FechaDeAlta);
+                    break;
+                case "date_desc":
+                    inquilinos = inquilinos.OrderByDescending(l => l.FechaDeAlta);
+                    break;
+                default:
+                    inquilinos = inquilinos.OrderBy(s => s.Apellido);
+                    break;
+            }
+
+            return View(inquilinos.ToList());
         }
 
         // GET: Inquilino/Details/5
@@ -47,7 +74,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nombre,Apellido,FechaDeAlta")] Inquilino inquilino)
+        public ActionResult Create([Bind(Include = "Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Inquilino inquilino)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +106,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nombre,Apellido,FechaDeAlta")] Inquilino inquilino)
+        public ActionResult Edit([Bind(Include = "Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Inquilino inquilino)
         {
             if (ModelState.IsValid)
             {
