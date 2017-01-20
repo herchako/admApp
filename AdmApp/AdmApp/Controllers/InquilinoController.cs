@@ -22,7 +22,7 @@ namespace AdmApp.Controllers
             ViewBag.DateSortParm = sortOrder == "Fecha" ? "date_desc" : "Fecha";
 
             var inquilinos = from l in db.Inquilinos
-                            select l;
+                             select l;
             if (!String.IsNullOrEmpty(searchString))
             {
                 inquilinos = inquilinos.Where(l => l.Apellido.Contains(searchString)
