@@ -11,11 +11,13 @@ using AdmApp.Models;
 
 namespace AdmApp.Controllers
 {
+
     public class InquilinoController : Controller
     {
         private InmobiliariaContext db = new InmobiliariaContext();
 
         // GET: Inquilino
+
         public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -23,6 +25,8 @@ namespace AdmApp.Controllers
 
             var inquilinos = from l in db.Inquilinos
                              select l;
+
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 inquilinos = inquilinos.Where(l => l.Apellido.Contains(searchString)
@@ -57,6 +61,8 @@ namespace AdmApp.Controllers
             }
             Inquilino inquilino = db.Inquilinos.Find(id);
             if (inquilino == null)
+
+
             {
                 return HttpNotFound();
             }
@@ -76,13 +82,21 @@ namespace AdmApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Inquilino inquilino)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Inquilinos.Add(inquilino);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Inquilinos.Add(inquilino);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
+            catch (DataException /*dex*/)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Error, no fue posible grabar los datos. Intente nuevamente.");
+            }
             return View(inquilino);
         }
 
@@ -95,6 +109,8 @@ namespace AdmApp.Controllers
             }
             Inquilino inquilino = db.Inquilinos.Find(id);
             if (inquilino == null)
+
+
             {
                 return HttpNotFound();
             }
@@ -126,6 +142,7 @@ namespace AdmApp.Controllers
             }
             Inquilino inquilino = db.Inquilinos.Find(id);
             if (inquilino == null)
+
             {
                 return HttpNotFound();
             }
@@ -140,6 +157,18 @@ namespace AdmApp.Controllers
             Inquilino inquilino = db.Inquilinos.Find(id);
             db.Inquilinos.Remove(inquilino);
             db.SaveChanges();
+
+
+
+
+
+
+
+
+
+
+
+
             return RedirectToAction("Index");
         }
 

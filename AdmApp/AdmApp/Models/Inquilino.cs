@@ -14,8 +14,7 @@ namespace AdmApp.Models
         public string Direccion { get; set; }
         public string Observaciones { get; set; }
         public DateTime FechaDeAlta { get; set; }
-
-
+        
         public virtual ICollection<Propiedad> Propiedades { get; set; }
     }
 }
