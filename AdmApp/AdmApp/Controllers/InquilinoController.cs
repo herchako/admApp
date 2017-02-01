@@ -11,13 +11,12 @@ using AdmApp.Models;
 
 namespace AdmApp.Controllers
 {
-
+    [Authorize]
     public class InquilinoController : Controller
     {
         private InmobiliariaContext db = new InmobiliariaContext();
 
         // GET: Inquilino
-
         public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -61,8 +60,6 @@ namespace AdmApp.Controllers
             }
             Inquilino inquilino = db.Inquilinos.Find(id);
             if (inquilino == null)
-
-
             {
                 return HttpNotFound();
             }
@@ -80,7 +77,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Inquilino inquilino)
+        public ActionResult Create([Bind(Include = "ID,Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Inquilino inquilino)
         {
             try
             {
@@ -109,8 +106,6 @@ namespace AdmApp.Controllers
             }
             Inquilino inquilino = db.Inquilinos.Find(id);
             if (inquilino == null)
-
-
             {
                 return HttpNotFound();
             }
@@ -122,7 +117,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Inquilino inquilino)
+        public ActionResult Edit([Bind(Include = "ID,Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Inquilino inquilino)
         {
             if (ModelState.IsValid)
             {
@@ -142,7 +137,6 @@ namespace AdmApp.Controllers
             }
             Inquilino inquilino = db.Inquilinos.Find(id);
             if (inquilino == null)
-
             {
                 return HttpNotFound();
             }
@@ -157,18 +151,6 @@ namespace AdmApp.Controllers
             Inquilino inquilino = db.Inquilinos.Find(id);
             db.Inquilinos.Remove(inquilino);
             db.SaveChanges();
-
-
-
-
-
-
-
-
-
-
-
-
             return RedirectToAction("Index");
         }
 

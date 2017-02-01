@@ -13,7 +13,7 @@ namespace AdmApp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201702011327523_Initial"; }
+            get { return "201702011858443_Initial"; }
         }
         
         string IMigrationMetadata.Source

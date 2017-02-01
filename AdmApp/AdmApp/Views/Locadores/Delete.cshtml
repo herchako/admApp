@@ -1,7 +1,7 @@
 ﻿@model AdmApp.Models.Locador
 
 @{
-    ViewBag.Title = "Borrar";
+    ViewBag.Title = "Delete";
 }
 
 <h2>Delete</h2>
@@ -44,6 +44,30 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Celular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Celular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observaciones)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.FechaDeAlta)
         </dt>
 
@@ -53,13 +77,12 @@
 
     </dl>
 
-    @using (Html.BeginForm())
-    {
+    @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Volver a la lista", "Index")
+            @Html.ActionLink("Back to List", "Index")
         </div>
     }
 </div>

@@ -75,7 +75,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Locador locador)
+        public ActionResult Create([Bind(Include = "ID,Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Locador locador)
         {
             try
             {
@@ -114,7 +114,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Locador locador)
+        public ActionResult Edit([Bind(Include = "ID,Nombre,Apellido,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Locador locador)
         {
             if (ModelState.IsValid)
             {
@@ -126,17 +126,12 @@ namespace AdmApp.Controllers
         }
 
         // GET: Locadores/Delete/5
-        public ActionResult Delete(int? id, bool? saveChangesError = false)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            if (saveChangesError.GetValueOrDefault())
-            {
-                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
-            }
-
             Locador locador = db.Locadores.Find(id);
             if (locador == null)
             {
@@ -150,20 +145,12 @@ namespace AdmApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                Locador locador = db.Locadores.Find(id);
-                db.Locadores.Remove(locador);
-                db.SaveChanges();
-
-            }
-            catch (DataException/* dex */)
-            {
-                //Log the error (uncomment dex variable name and add a line here to write a log.
-                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
-            }
+            Locador locador = db.Locadores.Find(id);
+            db.Locadores.Remove(locador);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

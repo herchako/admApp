@@ -1,7 +1,7 @@
 ﻿@model AdmApp.Models.Locador
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
@@ -51,35 +51,19 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Observaciones)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Observaciones)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Propiedades)
-        </dt>
-
-
-        <dd>
-            <table class="table">
-                <tr>
-                    <th>Calle</th>
-                    <th>Altura</th>
-                </tr>
-                @foreach (var item in Model.Propiedades)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Calle)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Altura)
-                        </td>
-                    </tr>
-                }
-            </table>
         </dd>
 
         <dt>
@@ -93,6 +77,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Volver a la lista", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>
