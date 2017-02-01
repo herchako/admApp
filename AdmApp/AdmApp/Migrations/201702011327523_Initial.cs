@@ -11,9 +11,14 @@ namespace AdmApp.Migrations
                 "dbo.Inquilino",
                 c => new
                     {
-                        ID = c.Int(nullable: false),
+                        ID = c.Int(nullable: false, identity: true),
                         Nombre = c.String(),
                         Apellido = c.String(),
+                        Email = c.String(),
+                        Telefono = c.String(),
+                        Celular = c.String(),
+                        Direccion = c.String(),
+                        Observaciones = c.String(),
                         FechaDeAlta = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
@@ -44,6 +49,7 @@ namespace AdmApp.Migrations
                         Email = c.String(),
                         Telefono = c.String(),
                         Celular = c.String(),
+                        Direccion = c.String(),
                         Observaciones = c.String(),
                         FechaDeAlta = c.DateTime(nullable: false),
                     })
