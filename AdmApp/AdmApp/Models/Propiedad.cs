@@ -10,14 +10,14 @@ namespace AdmApp.Models
         public int ID { get; set; }
 
         public int LocadorID { get; set; }
-        public int InquilinoID { get; set; }
-
         public string Calle { get; set; }
         public int Altura{ get; set; }
 
+        public string Observaciones { get; set; }
 
-        public virtual Locador Locador { get; set; }
-        public virtual Inquilino Inquilino{ get; set; }
+
+        public virtual ICollection<Contrato> Contratos { get; set; }
+        public virtual ICollection<Locador> Locadores { get; set; }
 
     }
 }

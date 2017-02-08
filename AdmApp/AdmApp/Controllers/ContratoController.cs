@@ -11,113 +11,120 @@ using AdmApp.Models;
 
 namespace AdmApp.Controllers
 {
-    public class PropiedadController : Controller
+    public class ContratoController : Controller
     {
         private InmobiliariaContext db = new InmobiliariaContext();
 
-        // GET: Propiedad
+        // GET: Contrato
         public ActionResult Index()
         {
-            return View(db.Propiedades.ToList());
+            var inquilinos = db.Inquilinos.ToList();
+            ViewBag.inquilinos = inquilinos;
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
+            return View(db.Contratos.ToList());
         }
 
-        // GET: Propiedad/Details/5
+        // GET: Contrato/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Propiedad propiedad = db.Propiedades.Find(id);
-            if (propiedad == null)
+            Contrato contrato = db.Contratos.Find(id);
+            if (contrato == null)
             {
                 return HttpNotFound();
             }
-            return View(propiedad);
+            return View(contrato);
         }
 
-        // GET: Propiedad/Create
+        // GET: Contrato/Create
         public ActionResult Create()
         {
             var inquilinos = db.Inquilinos.ToList();
             ViewBag.inquilinos = inquilinos;
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
             return View();
         }
 
-        // POST: Propiedad/Create
+        // POST: Contrato/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,LocadorID,Calle,Altura,Observaciones")] Propiedad propiedad)
+        public ActionResult Create([Bind(Include = "ID,LocadorID,InquilinoID,Referencia,GarantiaNombre,GarantiaTelefono,Vencimiento,Observaciones")] Contrato contrato)
         {
             if (ModelState.IsValid)
             {
-                db.Propiedades.Add(propiedad);
+                db.Contratos.Add(contrato);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(propiedad);
+            return View(contrato);
         }
 
-        // GET: Propiedad/Edit/5
+        // GET: Contrato/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Propiedad propiedad = db.Propiedades.Find(id);
-            if (propiedad == null)
+            Contrato contrato = db.Contratos.Find(id);
+            if (contrato == null)
             {
                 return HttpNotFound();
             }
-
             var inquilinos = db.Inquilinos.ToList();
             ViewBag.inquilinos = inquilinos;
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
 
-            return View(propiedad);
+            return View(contrato);
         }
 
-        // POST: Propiedad/Edit/5
+        // POST: Contrato/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,LocadorID,Calle,Altura,Observaciones")] Propiedad propiedad)
+        public ActionResult Edit([Bind(Include = "ID,LocadorID,InquilinoID,Referencia,GarantiaNombre,GarantiaTelefono,Vencimiento,Observaciones")] Contrato contrato)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(propiedad).State = EntityState.Modified;
+                db.Entry(contrato).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(propiedad);
+            return View(contrato);
         }
 
-        // GET: Propiedad/Delete/5
+        // GET: Contrato/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Propiedad propiedad = db.Propiedades.Find(id);
-            if (propiedad == null)
+            Contrato contrato = db.Contratos.Find(id);
+            if (contrato == null)
             {
                 return HttpNotFound();
             }
-            return View(propiedad);
+            return View(contrato);
         }
 
-        // POST: Propiedad/Delete/5
+        // POST: Contrato/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Propiedad propiedad = db.Propiedades.Find(id);
-            db.Propiedades.Remove(propiedad);
+            Contrato contrato = db.Contratos.Find(id);
+            db.Contratos.Remove(contrato);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -206,12 +206,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContratoController.cs" />
     <Compile Include="Controllers\InquilinoController.cs" />
     <Compile Include="Controllers\LocadoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PendienteController.cs" />
+    <Compile Include="Controllers\PeriodoContratoController.cs" />
     <Compile Include="Controllers\PropiedadController.cs" />
-    <Compile Include="DAL\InmobiliariaInitializer.cs" />
     <Compile Include="DAL\InmobiliariaContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -220,9 +222,20 @@
     <Compile Include="Migrations\201702011858443_Initial.Designer.cs">
       <DependentUpon>201702011858443_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702062326173_20170206.cs" />
+    <Compile Include="Migrations\201702062326173_20170206.Designer.cs">
+      <DependentUpon>201702062326173_20170206.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702062356360_20170206b.cs" />
+    <Compile Include="Migrations\201702062356360_20170206b.Designer.cs">
+      <DependentUpon>201702062356360_20170206b.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Contrato.cs" />
+    <Compile Include="Models\Pendiente.cs" />
     <Compile Include="Models\Inquilino.cs" />
+    <Compile Include="Models\PeriodoContrato.cs" />
     <Compile Include="Models\Propiedad.cs" />
     <Compile Include="Models\Locador.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1094,6 +1107,21 @@
     <Content Include="Views\Inquilino\Details.cshtml" />
     <Content Include="Views\Inquilino\Edit.cshtml" />
     <Content Include="Views\Inquilino\Index.cshtml" />
+    <Content Include="Views\Pendiente\Create.cshtml" />
+    <Content Include="Views\Pendiente\Delete.cshtml" />
+    <Content Include="Views\Pendiente\Details.cshtml" />
+    <Content Include="Views\Pendiente\Edit.cshtml" />
+    <Content Include="Views\Pendiente\Index.cshtml" />
+    <Content Include="Views\PeriodoContrato\Create.cshtml" />
+    <Content Include="Views\PeriodoContrato\Delete.cshtml" />
+    <Content Include="Views\PeriodoContrato\Details.cshtml" />
+    <Content Include="Views\PeriodoContrato\Edit.cshtml" />
+    <Content Include="Views\PeriodoContrato\Index.cshtml" />
+    <Content Include="Views\Contrato\Create.cshtml" />
+    <Content Include="Views\Contrato\Delete.cshtml" />
+    <Content Include="Views\Contrato\Details.cshtml" />
+    <Content Include="Views\Contrato\Edit.cshtml" />
+    <Content Include="Views\Contrato\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1120,6 +1148,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702011858443_Initial.resx">
       <DependentUpon>201702011858443_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702062326173_20170206.resx">
+      <DependentUpon>201702062326173_20170206.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702062356360_20170206b.resx">
+      <DependentUpon>201702062356360_20170206b.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

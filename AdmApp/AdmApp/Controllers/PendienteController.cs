@@ -11,113 +11,107 @@ using AdmApp.Models;
 
 namespace AdmApp.Controllers
 {
-    public class PropiedadController : Controller
+    public class PendienteController : Controller
     {
         private InmobiliariaContext db = new InmobiliariaContext();
 
-        // GET: Propiedad
+        // GET: Pendiente
         public ActionResult Index()
         {
-            return View(db.Propiedades.ToList());
+            return View(db.Pendientes.ToList());
         }
 
-        // GET: Propiedad/Details/5
+        // GET: Pendiente/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Propiedad propiedad = db.Propiedades.Find(id);
-            if (propiedad == null)
+            Pendiente pendiente = db.Pendientes.Find(id);
+            if (pendiente == null)
             {
                 return HttpNotFound();
             }
-            return View(propiedad);
+            return View(pendiente);
         }
 
-        // GET: Propiedad/Create
+        // GET: Pendiente/Create
         public ActionResult Create()
         {
-            var inquilinos = db.Inquilinos.ToList();
-            ViewBag.inquilinos = inquilinos;
             return View();
         }
 
-        // POST: Propiedad/Create
+        // POST: Pendiente/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,LocadorID,Calle,Altura,Observaciones")] Propiedad propiedad)
+        public ActionResult Create([Bind(Include = "ID,Referencia,Monto,FechaEmision,FechaVencimiento,Observaciones")] Pendiente pendiente)
         {
             if (ModelState.IsValid)
             {
-                db.Propiedades.Add(propiedad);
+                db.Pendientes.Add(pendiente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(propiedad);
+            return View(pendiente);
         }
 
-        // GET: Propiedad/Edit/5
+        // GET: Pendiente/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Propiedad propiedad = db.Propiedades.Find(id);
-            if (propiedad == null)
+            Pendiente pendiente = db.Pendientes.Find(id);
+            if (pendiente == null)
             {
                 return HttpNotFound();
             }
-
-            var inquilinos = db.Inquilinos.ToList();
-            ViewBag.inquilinos = inquilinos;
-
-            return View(propiedad);
+            return View(pendiente);
         }
 
-        // POST: Propiedad/Edit/5
+        // POST: Pendiente/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,LocadorID,Calle,Altura,Observaciones")] Propiedad propiedad)
+        public ActionResult Edit([Bind(Include = "ID,Referencia,Monto,FechaEmision,FechaVencimiento,Observaciones")] Pendiente pendiente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(propiedad).State = EntityState.Modified;
+                db.Entry(pendiente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(propiedad);
+            return View(pendiente);
         }
 
-        // GET: Propiedad/Delete/5
+        // GET: Pendiente/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Propiedad propiedad = db.Propiedades.Find(id);
-            if (propiedad == null)
+            Pendiente pendiente = db.Pendientes.Find(id);
+            if (pendiente == null)
             {
                 return HttpNotFound();
             }
-            return View(propiedad);
+            return View(pendiente);
         }
 
-        // POST: Propiedad/Delete/5
+        // POST: Pendiente/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Propiedad propiedad = db.Propiedades.Find(id);
-            db.Propiedades.Remove(propiedad);
+            Pendiente pendiente = db.Pendientes.Find(id);
+            db.Pendientes.Remove(pendiente);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

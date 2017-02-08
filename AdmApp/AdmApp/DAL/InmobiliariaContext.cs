@@ -18,5 +18,9 @@ namespace AdmApp.DAL
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public System.Data.Entity.DbSet<AdmApp.Models.Contrato> Contratos { get; set; }
+        public System.Data.Entity.DbSet<AdmApp.Models.Pendiente> Pendientes { get; set; }
+        public System.Data.Entity.DbSet<AdmApp.Models.PeriodoContrato> PeriodoContratos { get; set; }
     }
 }

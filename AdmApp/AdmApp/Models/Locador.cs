@@ -22,5 +22,6 @@ namespace AdmApp.Models
         public DateTime FechaDeAlta { get; set; }
 
         public virtual ICollection<Propiedad> Propiedades { get; set; }
+        public virtual ICollection<Pendiente> Pendientes { get; set; }
     }
 }

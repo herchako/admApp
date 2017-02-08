@@ -1,4 +1,4 @@
-﻿@model AdmApp.Models.Propiedad
+﻿@model AdmApp.Models.PeriodoContrato
 
 @{
     ViewBag.Title = "Delete";
@@ -8,39 +8,39 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Propiedad</h4>
+    <h4>PeriodoContrato</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.LocadorID)
+            @Html.DisplayNameFor(model => model.Referencia)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LocadorID)
+            @Html.DisplayFor(model => model.Referencia)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Calle)
+            @Html.DisplayNameFor(model => model.Monto)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Calle)
+            @Html.DisplayFor(model => model.Monto)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Altura)
+            @Html.DisplayNameFor(model => model.FechaComienzo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Altura)
+            @Html.DisplayFor(model => model.FechaComienzo)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Observaciones)
+            @Html.DisplayNameFor(model => model.FechaFin)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Observaciones)
+            @Html.DisplayFor(model => model.FechaFin)
         </dd>
 
     </dl>

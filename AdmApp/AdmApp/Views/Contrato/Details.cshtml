@@ -1,0 +1,74 @@
+﻿@model AdmApp.Models.Contrato
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contrato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LocadorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocadorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InquilinoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InquilinoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Referencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Referencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GarantiaNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GarantiaNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GarantiaTelefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GarantiaTelefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vencimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vencimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observaciones)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

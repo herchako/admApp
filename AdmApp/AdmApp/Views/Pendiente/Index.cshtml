@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AdmApp.Models.Propiedad>
+﻿@model IEnumerable<AdmApp.Models.Pendiente>
 
 @{
     ViewBag.Title = "Index";
@@ -12,13 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.LocadorID)
+            @Html.DisplayNameFor(model => model.Referencia)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Calle)
+            @Html.DisplayNameFor(model => model.Monto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Altura)
+            @Html.DisplayNameFor(model => model.FechaEmision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaVencimiento)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Observaciones)
@@ -29,13 +32,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.LocadorID)
+            @Html.DisplayFor(modelItem => item.Referencia)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Calle)
+            @Html.DisplayFor(modelItem => item.Monto)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Altura)
+            @Html.DisplayFor(modelItem => item.FechaEmision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaVencimiento)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Observaciones)

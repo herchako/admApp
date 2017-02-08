@@ -21,6 +21,7 @@ namespace AdmApp.Models
         [Display(Name = "Fecha de Alta")]
         public DateTime FechaDeAlta { get; set; }
 
-        public virtual ICollection<Propiedad> Propiedades { get; set; }
+        public virtual ICollection<Contrato> Contratos { get; set; }
+        public virtual ICollection<Pendiente> Pendientes { get; set; }
     }
 }

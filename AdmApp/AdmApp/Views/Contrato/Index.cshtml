@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AdmApp.Models.Contrato>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LocadorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InquilinoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GarantiaNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GarantiaTelefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vencimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observaciones)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @(((ViewBag.locadores as ICollection<AdmApp.Models.Locador>).First().Apellido))
+        </td>
+        <td>
+            @(((ViewBag.inquilinos as ICollection<AdmApp.Models.Inquilino>).First().Apellido))
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Referencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GarantiaNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GarantiaTelefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vencimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observaciones)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
