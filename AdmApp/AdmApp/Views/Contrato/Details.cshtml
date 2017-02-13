@@ -15,7 +15,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LocadorID)
+            @(((ViewBag.locadores as ICollection<AdmApp.Models.Locador>).FirstOrDefault(loc => loc.ID == Model.LocadorID).Apellido))
         </dd>
 
         <dt>
@@ -23,7 +23,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.InquilinoID)
+            @(((ViewBag.inquilinos as ICollection<AdmApp.Models.Inquilino>).FirstOrDefault(inq => inq.ID == Model.InquilinoID).Apellido))
         </dd>
 
         <dt>

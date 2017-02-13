@@ -38,10 +38,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @(((ViewBag.locadores as ICollection<AdmApp.Models.Locador>).First().Apellido))
+            @(((ViewBag.locadores as ICollection<AdmApp.Models.Locador>).FirstOrDefault(loc => loc.ID == item.LocadorID).Apellido))
         </td>
         <td>
-            @(((ViewBag.inquilinos as ICollection<AdmApp.Models.Inquilino>).First().Apellido))
+            @(((ViewBag.inquilinos as ICollection<AdmApp.Models.Inquilino>).FirstOrDefault(inq => inq.ID == item.InquilinoID).Apellido))
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Referencia)

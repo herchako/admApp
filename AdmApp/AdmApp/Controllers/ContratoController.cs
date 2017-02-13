@@ -37,6 +37,11 @@ namespace AdmApp.Controllers
             {
                 return HttpNotFound();
             }
+            var inquilinos = db.Inquilinos.ToList();
+            ViewBag.inquilinos = inquilinos;
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
+           
             return View(contrato);
         }
 
@@ -115,6 +120,11 @@ namespace AdmApp.Controllers
             {
                 return HttpNotFound();
             }
+            var inquilinos = db.Inquilinos.ToList();
+            ViewBag.inquilinos = inquilinos;
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
+
             return View(contrato);
         }
 
