@@ -13,6 +13,8 @@ namespace AdmApp.Models
         public int LocadorID { get; set; }
         [Display(Name = "Inquilino")]
         public int InquilinoID { get; set; }
+        [Display(Name = "Propiedad")]
+        public int PropiedadID { get; set; }
         public string Referencia { get; set; }
         [Display(Name = "Nombre Garantia")]
         public string GarantiaNombre { get; set; }

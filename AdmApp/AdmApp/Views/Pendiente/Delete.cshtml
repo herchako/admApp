@@ -12,6 +12,30 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Inquilino.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inquilino.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Locador.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Locador.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaEmision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaEmision)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Referencia)
         </dt>
 
@@ -25,14 +49,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Monto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaEmision)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaEmision)
         </dd>
 
         <dt>

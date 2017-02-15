@@ -18,7 +18,8 @@ namespace AdmApp.Controllers
         // GET: Pendiente
         public ActionResult Index()
         {
-            return View(db.Pendientes.ToList());
+            var pendientes = db.Pendientes.Include(p => p.Inquilino).Include(p => p.Locador);
+            return View(pendientes.ToList());
         }
 
         // GET: Pendiente/Details/5
@@ -39,6 +40,8 @@ namespace AdmApp.Controllers
         // GET: Pendiente/Create
         public ActionResult Create()
         {
+            ViewBag.InquilinoID = new SelectList(db.Inquilinos, "ID", "Apellido");
+            ViewBag.LocadorID = new SelectList(db.Locadores, "ID", "Apellido");
             return View();
         }
 
@@ -47,7 +50,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Referencia,Monto,FechaEmision,FechaVencimiento,Observaciones")] Pendiente pendiente)
+        public ActionResult Create([Bind(Include = "ID,FechaEmision,LocadorID,InquilinoID,Referencia,Monto,FechaVencimiento,Observaciones")] Pendiente pendiente)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +59,8 @@ namespace AdmApp.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.InquilinoID = new SelectList(db.Inquilinos, "ID", "Apellido", pendiente.InquilinoID);
+            ViewBag.LocadorID = new SelectList(db.Locadores, "ID", "Apellido", pendiente.LocadorID);
             return View(pendiente);
         }
 
@@ -71,6 +76,8 @@ namespace AdmApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.InquilinoID = new SelectList(db.Inquilinos, "ID", "Apellido", pendiente.InquilinoID);
+            ViewBag.LocadorID = new SelectList(db.Locadores, "ID", "Apellido", pendiente.LocadorID);
             return View(pendiente);
         }
 
@@ -79,7 +86,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Referencia,Monto,FechaEmision,FechaVencimiento,Observaciones")] Pendiente pendiente)
+        public ActionResult Edit([Bind(Include = "ID,FechaEmision,LocadorID,InquilinoID,Referencia,Monto,FechaVencimiento,Observaciones")] Pendiente pendiente)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +94,8 @@ namespace AdmApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.InquilinoID = new SelectList(db.Inquilinos, "ID", "Apellido", pendiente.InquilinoID);
+            ViewBag.LocadorID = new SelectList(db.Locadores, "ID", "Apellido", pendiente.LocadorID);
             return View(pendiente);
         }
 

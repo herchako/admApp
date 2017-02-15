@@ -8,6 +8,7 @@ namespace AdmApp.Models
     public class PeriodoContrato
     {
         public int ID { get; set; }
+        public int ContratoID { get; set; }
         public string Referencia { get; set; }
         public string Monto { get; set; }
         public DateTime FechaComienzo { get; set; }
