@@ -29,7 +29,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.LocadorID)
+            @(((ViewBag.locadores as ICollection<AdmApp.Models.Locador>).FirstOrDefault(loc => loc.ID == item.LocadorID).Apellido))
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Calle)

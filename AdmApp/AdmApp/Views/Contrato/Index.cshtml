@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<AdmApp.Models.Contrato>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Contrato";
 }
 
 <h2>Index</h2>
@@ -11,6 +11,9 @@
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Propiedad.Direccion)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.LocadorID)
         </th>
@@ -37,6 +40,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Propiedad.Calle)
+        </td>
         <td>
             @(((ViewBag.locadores as ICollection<AdmApp.Models.Locador>).FirstOrDefault(loc => loc.ID == item.LocadorID).Apellido))
         </td>

@@ -11,11 +11,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Propiedad.Calle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Propiedad.Calle)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.LocadorID)
         </dt>
 
         <dd>
-            @(((ViewBag.locadores as ICollection<AdmApp.Models.Locador>).FirstOrDefault(loc => loc.ID == Model.LocadorID).Apellido))
+           @(((ViewBag.locadores as ICollection<AdmApp.Models.Locador>).FirstOrDefault(loc => loc.ID == Model.LocadorID).Apellido))
         </dd>
 
         <dt>

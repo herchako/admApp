@@ -18,6 +18,8 @@ namespace AdmApp.Controllers
         // GET: Propiedad
         public ActionResult Index()
         {
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
             return View(db.Propiedades.ToList());
         }
 
@@ -33,6 +35,8 @@ namespace AdmApp.Controllers
             {
                 return HttpNotFound();
             }
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
             return View(propiedad);
         }
 
@@ -41,6 +45,8 @@ namespace AdmApp.Controllers
         {
             var inquilinos = db.Inquilinos.ToList();
             ViewBag.inquilinos = inquilinos;
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
             return View();
         }
 
@@ -73,7 +79,8 @@ namespace AdmApp.Controllers
             {
                 return HttpNotFound();
             }
-
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
             var inquilinos = db.Inquilinos.ToList();
             ViewBag.inquilinos = inquilinos;
 
@@ -93,6 +100,8 @@ namespace AdmApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
             return View(propiedad);
         }
 
@@ -108,6 +117,8 @@ namespace AdmApp.Controllers
             {
                 return HttpNotFound();
             }
+            var locadores = db.Locadores.ToList();
+            ViewBag.locadores = locadores;
             return View(propiedad);
         }
 
