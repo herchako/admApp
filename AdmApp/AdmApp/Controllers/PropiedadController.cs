@@ -11,6 +11,7 @@ using AdmApp.Models;
 
 namespace AdmApp.Controllers
 {
+    [Authorize]
     public class PropiedadController : Controller
     {
         private InmobiliariaContext db = new InmobiliariaContext();
