@@ -6,6 +6,10 @@ using System.Web;
 
 namespace AdmApp.Models
 {
+    public enum Estado
+    {
+        Abonado,Pendiente
+    }
     public class Pendiente
     {
         public int ID { get; set; }
@@ -17,6 +21,7 @@ namespace AdmApp.Models
         public int InquilinoID { get; set; }
         public string Referencia { get; set; }
         public string Monto { get; set; }
+        public Estado? Estado { get; set; }
         [Display(Name = "Fecha Vencimiento")]
         public DateTime FechaVencimiento { get; set; }
         public string Observaciones { get; set; }

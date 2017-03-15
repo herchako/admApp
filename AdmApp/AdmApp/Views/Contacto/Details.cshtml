@@ -1,4 +1,4 @@
-﻿@model AdmApp.Models.Locador
+﻿@model AdmApp.Models.Contacto
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Locador</h4>
+    <h4>Contacto</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -24,6 +24,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ocupacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ocupacion)
         </dd>
 
         <dt>
@@ -72,32 +80,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.FechaDeAlta)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Pendientes)
-        </dt>
-        <dd>
-            <table class="table">
-                <tr>
-                    <th>Pendiente</th>
-                    <th>Monto</th>
-                    <th>Observacion</th>
-                </tr>
-                @foreach (var item in Model.Pendientes)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Referencia)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Monto)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Observaciones)
-                        </td>
-                    </tr>
-                }
-            </table>
         </dd>
 
     </dl>

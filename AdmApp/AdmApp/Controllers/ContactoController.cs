@@ -11,116 +11,107 @@ using AdmApp.Models;
 
 namespace AdmApp.Controllers
 {
-    public class PendienteController : Controller
+    public class ContactoController : Controller
     {
         private InmobiliariaContext db = new InmobiliariaContext();
 
-        // GET: Pendiente
+        // GET: Contacto
         public ActionResult Index()
         {
-            var pendientes = db.Pendientes.Include(p => p.Inquilino).Include(p => p.Locador);
-            return View(pendientes.ToList());
+            return View(db.Contactoes.ToList());
         }
 
-        // GET: Pendiente/Details/5
+        // GET: Contacto/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pendiente pendiente = db.Pendientes.Find(id);
-            if (pendiente == null)
+            Contacto contacto = db.Contactoes.Find(id);
+            if (contacto == null)
             {
                 return HttpNotFound();
             }
-            return View(pendiente);
+            return View(contacto);
         }
 
-        // GET: Pendiente/Create
+        // GET: Contacto/Create
         public ActionResult Create()
         {
-            ViewBag.InquilinoID = new SelectList(db.Inquilinos, "ID", "Nombre");
-            ViewBag.LocadorID = new SelectList(db.Locadores, "ID", "Nombre");
             return View();
         }
 
-        // POST: Pendiente/Create
+        // POST: Contacto/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FechaEmision,LocadorID,InquilinoID,Referencia,Monto,FechaVencimiento,Observaciones")] Pendiente pendiente)
+        public ActionResult Create([Bind(Include = "ID,Nombre,Apellido,Ocupacion,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Contacto contacto)
         {
             if (ModelState.IsValid)
             {
-                db.Pendientes.Add(pendiente);
+                db.Contactoes.Add(contacto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.InquilinoID = new SelectList(db.Inquilinos, "ID", "Nombre", pendiente.InquilinoID);
-            ViewBag.LocadorID = new SelectList(db.Locadores, "ID", "Nombre", pendiente.LocadorID);
-            return View(pendiente);
+            return View(contacto);
         }
 
-        // GET: Pendiente/Edit/5
+        // GET: Contacto/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pendiente pendiente = db.Pendientes.Find(id);
-            if (pendiente == null)
+            Contacto contacto = db.Contactoes.Find(id);
+            if (contacto == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.InquilinoID = new SelectList(db.Inquilinos, "ID", "Nombre", pendiente.InquilinoID);
-            ViewBag.LocadorID = new SelectList(db.Locadores, "ID", "Nombre", pendiente.LocadorID);
-            return View(pendiente);
+            return View(contacto);
         }
 
-        // POST: Pendiente/Edit/5
+        // POST: Contacto/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FechaEmision,LocadorID,InquilinoID,Referencia,Monto,FechaVencimiento,Observaciones")] Pendiente pendiente)
+        public ActionResult Edit([Bind(Include = "ID,Nombre,Apellido,Ocupacion,Email,Telefono,Celular,Direccion,Observaciones,FechaDeAlta")] Contacto contacto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pendiente).State = EntityState.Modified;
+                db.Entry(contacto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.InquilinoID = new SelectList(db.Inquilinos, "ID", "Nombre", pendiente.InquilinoID);
-            ViewBag.LocadorID = new SelectList(db.Locadores, "ID", "Nombre", pendiente.LocadorID);
-            return View(pendiente);
+            return View(contacto);
         }
 
-        // GET: Pendiente/Delete/5
+        // GET: Contacto/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pendiente pendiente = db.Pendientes.Find(id);
-            if (pendiente == null)
+            Contacto contacto = db.Contactoes.Find(id);
+            if (contacto == null)
             {
                 return HttpNotFound();
             }
-            return View(pendiente);
+            return View(contacto);
         }
 
-        // POST: Pendiente/Delete/5
+        // POST: Contacto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Pendiente pendiente = db.Pendientes.Find(id);
-            db.Pendientes.Remove(pendiente);
+            Contacto contacto = db.Contactoes.Find(id);
+            db.Contactoes.Remove(contacto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
