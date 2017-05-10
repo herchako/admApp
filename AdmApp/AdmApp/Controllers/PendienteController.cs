@@ -50,7 +50,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FechaEmision,LocadorID,InquilinoID,Referencia,Monto,FechaVencimiento,Observaciones")] Pendiente pendiente)
+        public ActionResult Create([Bind(Include = "ID,FechaEmision,LocadorID,InquilinoID,Referencia,Monto,Estado,FechaVencimiento,Observaciones")] Pendiente pendiente)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace AdmApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FechaEmision,LocadorID,InquilinoID,Referencia,Monto,FechaVencimiento,Observaciones")] Pendiente pendiente)
+        public ActionResult Edit([Bind(Include = "ID,FechaEmision,LocadorID,InquilinoID,Referencia,Monto,Estado,FechaVencimiento,Observaciones")] Pendiente pendiente)
         {
             if (ModelState.IsValid)
             {

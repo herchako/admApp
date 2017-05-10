@@ -77,10 +77,11 @@
             @Html.DisplayNameFor(model => model.Pendientes)
         </dt>
         <dd>
-            <table class="table">
+            <table class="table detail-table" >
                 <tr>
                     <th>Pendiente</th>
                     <th>Monto</th>
+                    <th>Estado</th>
                     <th>Observacion</th>
                 </tr>
                 @foreach (var item in Model.Pendientes)
@@ -91,6 +92,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Monto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estado)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Observaciones)

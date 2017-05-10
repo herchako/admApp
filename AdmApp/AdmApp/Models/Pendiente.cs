@@ -8,7 +8,7 @@ namespace AdmApp.Models
 {
     public enum Estado
     {
-        Abonado,Pendiente
+        Abonado,Pendiente,NoAsignado
     }
     public class Pendiente
     {
